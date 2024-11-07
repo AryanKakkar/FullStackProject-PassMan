@@ -23,7 +23,7 @@ const Navbar = () => {
             src="/icons/github.svg"
             alt="GitHub logo"
           />
-          <a className="font-bold px-1" href='https://github.com/AryanKakkar' target="_blank">GitHub</a>
+          <a className="font-bold px-1" href='https://github.com/AryanKakkar/FullStackProject-PassMan' target="_blank">GitHub</a>
         </button>
 
       </div>
