@@ -10,7 +10,7 @@ const Manager = () => {
   const [passwordArray, setPasswordArray] = useState([]);
 
   const getPasswords = async() => {
-    let req = await fetch("http://localhost:3000")
+    let req = await fetch("https://fullstackproject-passman-backend.onrender.com")
     let passwords = await req.json()
     setPasswordArray(passwords)
     console.log(passwords)
@@ -39,9 +39,9 @@ const Manager = () => {
         });
     }
     else{
-      await fetch("http://localhost:3000",{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:form.id})})
+      await fetch("https://fullstackproject-passman-backend.onrender.com",{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:form.id})})
       setPasswordArray([...passwordArray, {...form, id: uuidv4()}]);
-      await fetch("http://localhost:3000",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...form, id: uuidv4()})})
+      await fetch("https://fullstackproject-passman-backend.onrender.com",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...form, id: uuidv4()})})
       // localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form, id: uuidv4()}]));
       // console.log([...passwordArray, form]);
       setForm({ site: "", username: "", password: "" })
@@ -73,7 +73,7 @@ const Manager = () => {
         theme: "dark",
         });
       setPasswordArray(passwordArray.filter(item=>item.id!==id))
-      let res = await fetch("http://localhost:3000",{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({id})})
+      let res = await fetch("https://fullstackproject-passman-backend.onrender.com",{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({id})})
       // localStorage.setItem("passwords", JSON.stringify(passwordArray.filter(item=>item.id!==id)));
     }
   };
